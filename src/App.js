@@ -1,17 +1,17 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { ToastContainer, toast } from "react-toastify";
+import TopMenu from "./components/TopMenu";
+import Products from "./components/Products";
+import useFetch from "./hooks/useFetch";
+import { URL_API_PRODUCTS } from "./utils/constants";
 
 function App() {
-  const openToast = () => {
-    toast("Este es mi toast!");
-  };
+  // const products = useFetch("http://localhost:3000/dbProducts.json", null);
+  const products = useFetch(URL_API_PRODUCTS, null);
 
   return (
-    <div className="App">
-      <button onClick={openToast}>Click</button>
-      <ToastContainer />
+    <div>
+      <TopMenu />
+      <Products products={products} />
     </div>
   );
 }
