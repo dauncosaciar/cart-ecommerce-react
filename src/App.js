@@ -41,8 +41,9 @@ function App() {
       <TopMenu />
       <Products products={products} addProductToCart={addProductToCart} />
       <ToastContainer
+        toastStyle={{ fontFamily: "Roboto, sans-serif" }}
         position="bottom-left"
-        autoClose={5000}
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop
         closeOnClick

@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
+import Cart from "../Cart";
 import { ReactComponent as Logo } from "../../assets/svg/logo.svg";
 
 import "./TopMenu.scss";
@@ -9,8 +10,7 @@ export default function TopMenu() {
     <Navbar bg="dark" variant="dark" className="top-menu">
       <Container>
         <BrandNav />
-        {/* <MenuNav /> */}
-        {/* Carrito */}
+        <Cart />
       </Container>
     </Navbar>
   );
@@ -22,15 +22,5 @@ function BrandNav() {
       <Logo />
       <h2>La Casa de los Helados</h2>
     </Navbar.Brand>
-  );
-}
-
-function MenuNav() {
-  return (
-    <Nav className="mr-auto">
-      <Nav.Link href="#">Aperitivos</Nav.Link>
-      <Nav.Link href="#">Helados</Nav.Link>
-      <Nav.Link href="#">Mascotas</Nav.Link>
-    </Nav>
   );
 }
