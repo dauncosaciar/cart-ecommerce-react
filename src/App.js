@@ -14,16 +14,6 @@ function App() {
     getProductsFromCart();
   }, []);
 
-  // Agregar productos al carrito
-  const addProductToCart = (id, name) => {
-    const idsProducts = productsCart;
-    idsProducts.push(id);
-    setProductsCart(idsProducts);
-    localStorage.setItem(STORAGE_PRODUCTS_CART, productsCart);
-
-    toast.success(`'${name}' añadido al carrito correctamente.`);
-  };
-
   // Recuperar productos del carrito
   const getProductsFromCart = () => {
     const idsProducts = localStorage.getItem(STORAGE_PRODUCTS_CART);
@@ -36,9 +26,23 @@ function App() {
     }
   };
 
+  // Agregar productos al carrito
+  const addProductToCart = (id, name) => {
+    const idsProducts = productsCart;
+    idsProducts.push(id);
+    setProductsCart(idsProducts);
+    localStorage.setItem(STORAGE_PRODUCTS_CART, productsCart);
+    getProductsFromCart();
+    toast.success(`'${name}' añadido al carrito correctamente.`);
+  };
+
   return (
     <div>
-      <TopMenu />
+      <TopMenu
+        products={products}
+        productsCart={productsCart}
+        getProductsFromCart={getProductsFromCart}
+      />
       <Products products={products} addProductToCart={addProductToCart} />
       <ToastContainer
         toastStyle={{ fontFamily: "Roboto, sans-serif" }}
